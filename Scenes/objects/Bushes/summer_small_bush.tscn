@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://rlhfb3t3mhgg"]
+
+[ext_resource type="Texture2D" uid="uid://dfxmu7rfq7p2t" path="res://Assets/Tileset/Props/Bush.png" id="1_eh5yy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_808vt"]
+atlas = ExtResource("1_eh5yy")
+region = Rect2(18, 4, 12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d48dk"]
+radius = 4.0
+
+[node name="Big Bush" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_808vt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d48dk")

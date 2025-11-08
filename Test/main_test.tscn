@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfmj7iudfriay"]
+
+[ext_resource type="PackedScene" uid="uid://cd5h86te3tn6x" path="res://Scenes/World/farm.tscn" id="1_5b10b"]
+[ext_resource type="PackedScene" uid="uid://bntf5ik0e51rh" path="res://Scenes/objects/Trees/summer_tree.tscn" id="2_dk8bn"]
+[ext_resource type="PackedScene" uid="uid://cpsaye730new2" path="res://Scenes/objects/Trees/spring_tree.tscn" id="3_xjufx"]
+[ext_resource type="PackedScene" uid="uid://unn22ykyh8h5" path="res://Scenes/objects/rock.tscn" id="4_q14us"]
+[ext_resource type="PackedScene" uid="uid://b30eqmdhtqtf2" path="res://Scenes/objects/Bushes/summer_big_bush.tscn" id="5_xjufx"]
+[ext_resource type="PackedScene" uid="uid://rlhfb3t3mhgg" path="res://Scenes/objects/Bushes/summer_small_bush.tscn" id="6_q14us"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Farm2" parent="." instance=ExtResource("1_5b10b")]
+position = Vector2(-1, 14)
+
+[node name="Bushes" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Big Bush" parent="Bushes" instance=ExtResource("5_xjufx")]
+position = Vector2(113, 15)
+
+[node name="Big Bush2" parent="Bushes" instance=ExtResource("5_xjufx")]
+position = Vector2(117, 27)
+
+[node name="Big Bush3" parent="Bushes" instance=ExtResource("6_q14us")]
+position = Vector2(110, 107)
+
+[node name="Big Bush4" parent="Bushes" instance=ExtResource("6_q14us")]
+position = Vector2(124, 20)
+
+[node name="Big Bush5" parent="Bushes" instance=ExtResource("5_xjufx")]
+position = Vector2(18, 97)
+
+[node name="Big Bush6" parent="Bushes" instance=ExtResource("6_q14us")]
+position = Vector2(76, 129)
+
+[node name="Trees" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Tree" parent="Trees" instance=ExtResource("3_xjufx")]
+position = Vector2(136, 39)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("2_dk8bn")]
+position = Vector2(148, 80)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("2_dk8bn")]
+position = Vector2(181, 26)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("2_dk8bn")]
+position = Vector2(181, 72)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("3_xjufx")]
+position = Vector2(26, 130)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("3_xjufx")]
+position = Vector2(30, 111)
+
+[node name="Tree7" parent="Trees" instance=ExtResource("2_dk8bn")]
+position = Vector2(49, 145)
+
+[node name="Tree8" parent="Trees" instance=ExtResource("3_xjufx")]
+position = Vector2(92, 83)
+
+[node name="Rocks" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Rock" parent="Rocks" instance=ExtResource("4_q14us")]
+position = Vector2(120, 164)
+
+[node name="Rock2" parent="Rocks" instance=ExtResource("4_q14us")]
+position = Vector2(171, 21)
