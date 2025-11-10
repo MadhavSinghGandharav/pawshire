@@ -6,15 +6,15 @@
 atlas = ExtResource("1_uvtpv")
 region = Rect2(37, 4, 22, 43)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j8h35"]
-radius = 6.0
-height = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8tlp"]
+radius = 5.0
 
 [node name="Tree" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
 texture = SubResource("AtlasTexture_0yjm6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11)
-shape = SubResource("CapsuleShape2D_j8h35")
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_d8tlp")

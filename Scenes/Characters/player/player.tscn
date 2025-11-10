@@ -1,10 +1,16 @@
-[gd_scene load_steps=98 format=3 uid="uid://bbaxcmec3pk8"]
+[gd_scene load_steps=104 format=3 uid="uid://bbaxcmec3pk8"]
 
+[ext_resource type="Script" uid="uid://urie44cyg374" path="res://Scenes/Characters/player/player.gd" id="1_hcia3"]
 [ext_resource type="Texture2D" uid="uid://bpqavd7o7ok4p" path="res://Assets/Character/death.png" id="1_qjt6j"]
 [ext_resource type="Texture2D" uid="uid://bn4ujgta824f4" path="res://Assets/Character/hurt.png" id="2_d3gkt"]
 [ext_resource type="Texture2D" uid="uid://drdwn5v44gh43" path="res://Assets/Character/idle.png" id="3_43hfj"]
 [ext_resource type="Texture2D" uid="uid://dttnd8jgvpdhh" path="res://Assets/Character/run.png" id="4_bafrb"]
 [ext_resource type="Texture2D" uid="uid://cwgclih8cuhgj" path="res://Assets/Character/walk.png" id="5_t1uvf"]
+[ext_resource type="Script" uid="uid://c07n52qlch2rj" path="res://Components/StateMachine.gd" id="6_ncame"]
+[ext_resource type="Script" uid="uid://duqccf5h47vps" path="res://Scenes/Characters/player/idle.gd" id="7_qkbvw"]
+[ext_resource type="Script" uid="uid://lt2vj1mnq46m" path="res://Components/InputComponent.gd" id="8_v64dv"]
+[ext_resource type="Script" uid="uid://b24tulpxcqym0" path="res://Components/MovementComponent.gd" id="9_hcia3"]
+[ext_resource type="Script" uid="uid://de5g75e4ettfb" path="res://Scenes/Characters/player/run.gd" id="9_u8erc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdvll"]
 atlas = ExtResource("1_qjt6j")
@@ -715,15 +721,41 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6uf6"]
-size = Vector2(5, 6)
+size = Vector2(9, 8.125)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hcia3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ehaha")
 animation = &"idle_front"
 autoplay = "idle_front"
+frame_progress = 0.26369068
 
 [node name="Idle_CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 4)
+position = Vector2(-0.5, 2.9375)
 shape = SubResource("RectangleShape2D_c6uf6")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_ncame")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://c07n52qlch2rj"
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite_2d")]
+script = ExtResource("7_qkbvw")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://cufh7oa2e7rtx"
+
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite_2d")]
+script = ExtResource("9_u8erc")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+run_speed = 50.0
+metadata/_custom_type_script = "uid://cufh7oa2e7rtx"
+
+[node name="InputComponent" type="Node" parent="."]
+script = ExtResource("8_v64dv")
+metadata/_custom_type_script = "uid://lt2vj1mnq46m"
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("9_hcia3")
+metadata/_custom_type_script = "uid://b24tulpxcqym0"
